@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import PortfolioRouteScene from "./PortfolioRouteScene";
 import type { GameMilestone } from "./milestones";
 import GameIntroOverlay from "./GameIntroOverlay";
+import { publicAsset } from "../../utils/publicAsset";
 
 export default function PortfolioRouteGame() {
   const gameRef = useRef<HTMLDivElement | null>(null);
@@ -111,6 +112,26 @@ export default function PortfolioRouteGame() {
       className="relative overflow-hidden bg-[#0f111a] px-4 py-16 text-[#fff7ea] sm:px-6 lg:px-10"
     >
       <div className="mx-auto max-w-7xl">
+        <div className="mb-4 flex flex-col gap-4 rounded-lg border border-white/10 bg-[#fff7ea] p-4 text-[#11131a] shadow-[0_18px_60px_rgba(0,0,0,0.2)] sm:flex-row sm:items-center sm:justify-between sm:p-5">
+          <p className="text-sm font-black sm:text-base">
+            Not here to play? View my projects directly.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <a
+              href="#projects"
+              className="rounded-md bg-[#e2484d] px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.12em] text-white transition hover:-translate-y-0.5 hover:bg-[#c9373d] focus:outline-none focus:ring-2 focus:ring-[#e2484d]/35"
+            >
+              View Projects
+            </a>
+            <a
+              href="#technical-focus"
+              className="rounded-md border border-black/15 bg-white/60 px-4 py-2.5 text-[10px] font-black uppercase tracking-[0.12em] transition hover:-translate-y-0.5 hover:bg-white focus:outline-none focus:ring-2 focus:ring-black/15"
+            >
+              View Skills Matrix
+            </a>
+          </div>
+        </div>
+
         <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#151827] p-3 shadow-[0_34px_130px_rgba(0,0,0,0.42)]">
           <div className="mb-3 rounded-[1.45rem] border border-white/10 bg-[#11131d]/90 px-5 py-4 sm:px-6">
             <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
@@ -365,7 +386,7 @@ export default function PortfolioRouteGame() {
                         </a>
 
                         <a
-                          href="/Layan-Sabha-CV.pdf"
+                          href={publicAsset("Layan-Sabha-CV.pdf")}
                           className="rounded-xl border border-black/15 px-4 py-2 text-xs font-black uppercase tracking-[0.12em]"
                         >
                           Download CV
@@ -383,6 +404,7 @@ export default function PortfolioRouteGame() {
           ) : null}
 
         </div>
+
       </div>
     </section>
   );

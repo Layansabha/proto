@@ -1,6 +1,5 @@
 
 .pixel-art-button {
-  background-image: url("/assets/game/intro/start button.png");
   background-size: 100% 100%;
   color: #fff7ea;
   text-shadow: 2px 2px #3b2111;
@@ -24,7 +23,6 @@
 }
 
 .dialogue-bubble {
-  background-image: url("/assets/game/intro/chat.png");
   background-size: 100% 100%;
   image-rendering: pixelated;
   padding: 30px;
@@ -38,7 +36,6 @@
   width: 160px;
   height: 220px;
   image-rendering: pixelated;
-  background-image: url("/assets/game/player/layan-spritesheet.png");
   background-repeat: no-repeat;
   /* Spritesheet has 12 frames of 160x220. Total width 1920px. */
   background-size: 1920px 220px;

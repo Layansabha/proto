@@ -7,6 +7,8 @@ import PageIntro from "./components/PageIntro";
 import ContactPanel from "./components/ContactPanel";
 import StudioBoard from "./components/StudioBoard";
 import PortfolioRouteGame from "./components/PortfolioRouteGame/PortfolioRouteGame";
+import FeaturedProjects from "./components/FeaturedProjects";
+import TechnicalFocus from "./components/TechnicalFocus";
 
 function App() {
   const [introVisible, setIntroVisible] = useState(true);
@@ -32,6 +34,8 @@ function App() {
       <Hero />
       <KineticDivider />
 
+      <FeaturedProjects />
+      <TechnicalFocus />
       <PortfolioRouteGame />
 
       <StudioBoard />

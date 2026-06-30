@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { publicAsset } from "../utils/publicAsset";
 
 const commands = [
   "scan --identity layan",
@@ -115,7 +116,7 @@ export default function Hero() {
           <div className="relative mx-auto w-full max-w-[720px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] p-3 shadow-[0_34px_110px_rgba(0,0,0,0.36)] backdrop-blur">
             <div className="relative aspect-[0.96/1] overflow-hidden rounded-[1.5rem]">
               <img
-                src="/assets/layan-photo.jpg"
+                src={publicAsset("assets/layan-photo.jpg")}
                 alt="Portrait of Layan"
                 className="h-full w-full object-cover object-center"
               />

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./GameIntroOverlay.css";
+import { publicAsset } from "../../utils/publicAsset";
 
 type Props = {
   onStartGame: () => void;
@@ -38,9 +39,19 @@ export default function GameIntroOverlay({ onStartGame }: Props) {
       </div>
 
       <div className="relative mt-8 flex w-full max-w-xl items-center justify-center">
-        <div className="layan-sprite" />
+        <div
+          className="layan-sprite"
+          style={{
+            backgroundImage: `url("${publicAsset("assets/game/player/layan-spritesheet.png")}")`,
+          }}
+        />
 
-        <div className="dialogue-bubble relative -ml-44 -translate-y-24 w-96 max-w-[calc(100vw-2rem)]">
+        <div
+          className="dialogue-bubble relative -ml-44 -translate-y-24 w-96 max-w-[calc(100vw-2rem)]"
+          style={{
+            backgroundImage: `url("${publicAsset("assets/game/intro/chat.png")}")`,
+          }}
+        >
           <p className="font-mono text-lg font-bold">{dialogue[step]}</p>
         </div>
       </div>
@@ -50,6 +61,9 @@ export default function GameIntroOverlay({ onStartGame }: Props) {
           type="button"
           onClick={handleNext}
           className="pixel-art-button w-48"
+          style={{
+            backgroundImage: `url("${publicAsset("assets/game/intro/start button.png")}")`,
+          }}
         >
           {isLastStep ? "Start Game" : "Next"}
         </button>
