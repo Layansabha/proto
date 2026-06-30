@@ -196,9 +196,6 @@ export default function FeaturedProjects() {
               Featured Projects
             </h2>
           </div>
-          <p className="max-w-md text-sm leading-7 text-black/55">
-            Projects with clear technical evidence and measurable outcomes.
-          </p>
         </motion.div>
 
         <div className="grid gap-4 lg:grid-cols-3">

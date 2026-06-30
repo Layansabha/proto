@@ -55,9 +55,6 @@ export default function StudioBoard() {
           <p className="text-xs font-black uppercase tracking-[0.28em] text-[var(--red)]">
             Interactive Lab
           </p>
-          <h2 className="mt-3 max-w-4xl text-4xl font-black leading-[0.98] text-[#fff8ee] sm:text-6xl">
-            Systems in motion.
-          </h2>
         </motion.div>
 
         <motion.article
@@ -71,7 +68,7 @@ export default function StudioBoard() {
                 energy loop
               </p>
               <h3 className="mt-3 max-w-lg text-4xl font-black leading-tight">
-                You can pay me with 500 cans.
+                You can pay me 500 cans.
               </h3>
               <p className="mt-3 max-w-md text-sm leading-7 text-[var(--muted)]">
                 {machineLine}

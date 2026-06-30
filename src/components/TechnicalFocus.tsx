@@ -53,16 +53,10 @@ export default function TechnicalFocus() {
           className="mb-8 grid gap-4 lg:grid-cols-[1fr_0.72fr] lg:items-end"
         >
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-[#e2484d]">
-              Practical engineering profile
-            </p>
             <h2 className="mt-3 text-4xl font-black leading-none sm:text-5xl">
               Technical Focus
             </h2>
           </div>
-          <p className="max-w-lg text-sm leading-7 text-black/58">
-            Infrastructure, network, and security skills delivered with clarity.
-          </p>
         </motion.div>
 
         <div className="grid border-y border-black/12 md:grid-cols-3">
