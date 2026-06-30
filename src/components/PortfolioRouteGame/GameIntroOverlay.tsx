@@ -32,7 +32,9 @@ export default function GameIntroOverlay({ onStartGame }: Props) {
         <p className="text-xs font-black uppercase tracking-[0.28em] text-[#ff6b8a]">
           Play My Route
         </p>
-        <h2 className="mt-3 font-mono text-3xl font-black leading-none text-white sm:text-5xl"></h2>
+        <h2 className="mt-3 font-mono text-3xl font-black leading-none text-white sm:text-5xl">
+          Start the route
+        </h2>
       </div>
 
       <div className="relative mt-8 flex w-full max-w-xl items-center justify-center">
