@@ -10,6 +10,11 @@ const contacts = [
   },
   { label: "Phone", value: "+962798691559", href: "tel:+962798691559" },
   {
+    label: "GitHub",
+    value: "github.com/Layansabha",
+    href: "https://github.com/Layansabha",
+  },
+  {
     label: "LinkedIn",
     value: "linkedin.com/in/layan-sabha",
     href: "https://www.linkedin.com/in/layan-sabha/",

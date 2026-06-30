@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import layanPhoto from "../assets/layan-photo.jpg";
 
 const commands = [
   "scan --identity layan",
@@ -53,7 +52,7 @@ export default function Hero() {
           <p className="text-xs font-black uppercase tracking-[0.32em] text-[var(--red)]">
             DevOps / Security / Network
           </p>
-          <h1 className="mt-4 text-5xl font-black leading-[0.9] tracking-normal text-[#fff8ee] sm:text-7xl lg:text-[6.5rem]">
+          <h1 className="mt-4 max-w-3xl text-4xl font-black leading-[1.02] tracking-normal text-[#fff8ee] sm:text-5xl lg:text-6xl">
             Layan builds systems that hold under pressure.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-8 text-white/66">
@@ -116,7 +115,7 @@ export default function Hero() {
           <div className="relative mx-auto w-full max-w-[720px] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.06] p-3 shadow-[0_34px_110px_rgba(0,0,0,0.36)] backdrop-blur">
             <div className="relative aspect-[0.96/1] overflow-hidden rounded-[1.5rem]">
               <img
-                src={layanPhoto}
+                src="/assets/layan-photo.jpg"
                 alt="Portrait of Layan"
                 className="h-full w-full object-cover object-center"
               />

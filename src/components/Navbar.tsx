@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
 import logo from "../assets/logoo.png";
 
-const links = ["Journey", "About", "Skills", "Projects", "Contact"];
+const links = [
+  { label: "Journey", href: "#route-game" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#route-game" },
+  { label: "Projects", href: "#route-game" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
   return (
@@ -33,11 +39,11 @@ export default function Navbar() {
         <div className="hidden items-center gap-7 text-xs font-black uppercase tracking-[0.14em] text-[#e8d7c5]/68 lg:flex">
           {links.map((link) => (
             <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
+              key={link.label}
+              href={link.href}
               className="transition hover:text-white"
             >
-              {link}
+              {link.label}
             </a>
           ))}
         </div>

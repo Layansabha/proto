@@ -541,6 +541,7 @@ export default class PortfolioRouteScene extends Phaser.Scene {
   private drawMilestoneSign(milestone: GameMilestone) {
     const x = milestone.x;
     const surfaceY = milestone.y + 12;
+    const isInternship = milestone.shortLabel.endsWith("Internship");
 
     if (this.textures.exists("signpost")) {
       this.add
@@ -565,7 +566,7 @@ export default class PortfolioRouteScene extends Phaser.Scene {
     this.add
       .text(x, surfaceY - 54, milestone.shortLabel, {
         fontFamily: "monospace",
-        fontSize: "10px",
+        fontSize: isInternship ? "8px" : "10px",
         fontStyle: "bold",
         color: "#fff7ea",
         stroke: "#3b2111",

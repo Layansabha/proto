@@ -14,6 +14,7 @@ export default function PortfolioRouteGame() {
   const [complete, setComplete] = useState(false);
   const [progress, setProgress] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
+  const [showVideoModal, setShowVideoModal] = useState(false);
 
   useEffect(() => {
     if (!gameRef.current || phaserRef.current) return;
@@ -59,7 +60,11 @@ export default function PortfolioRouteGame() {
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setOpened(null);
+        if (showVideoModal) {
+          setShowVideoModal(false);
+        } else {
+          setOpened(null);
+        }
       }
     };
 
@@ -74,7 +79,18 @@ export default function PortfolioRouteGame() {
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("blur", onWindowBlur);
     };
-  }, []);
+  }, [showVideoModal]);
+
+  useEffect(() => {
+    if (!showVideoModal) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [showVideoModal]);
 
   useEffect(() => {
     if (!phaserRef.current) return;
@@ -212,7 +228,10 @@ export default function PortfolioRouteGame() {
 
                     <button
                       type="button"
-                      onClick={() => setOpened(null)}
+                      onClick={() => {
+                        setShowVideoModal(false);
+                        setOpened(null);
+                      }}
                       className="rounded-xl border border-white/10 bg-white/10 px-3 py-2 text-sm font-black transition hover:-translate-y-0.5"
                       aria-label="Close milestone card"
                     >
@@ -222,9 +241,16 @@ export default function PortfolioRouteGame() {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-3xl font-black leading-tight">
-                    {opened.title}
-                  </h3>
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <h3 className="text-3xl font-black leading-tight">
+                      {opened.title}
+                    </h3>
+                    {opened.status ? (
+                      <span className="rounded-full border border-[#e2484d]/20 bg-[#e2484d]/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.14em] text-[#b72f36]">
+                        {opened.status}
+                      </span>
+                    ) : null}
+                  </div>
 
                   <p className="mt-2 text-sm font-black text-black/50">
                     {opened.date} · {opened.organization}
@@ -313,14 +339,35 @@ export default function PortfolioRouteGame() {
                   ) : null}
 
                   <div className="mt-6 flex flex-wrap gap-3">
+                    {opened.demoVideo ? (
+                      <button
+                        type="button"
+                        onClick={() => setShowVideoModal(true)}
+                        className="rounded-xl bg-[#e2484d] px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-white transition hover:-translate-y-0.5 hover:bg-[#c9373d] focus:outline-none focus:ring-2 focus:ring-[#e2484d]/35"
+                      >
+                        View Demo
+                      </button>
+                    ) : null}
+
                     {opened.link ? (
                       <a
                         href={opened.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="rounded-xl bg-[#ff6b8a] px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-[#11131a]"
+                        className="rounded-xl border border-black/15 bg-white/45 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-[#11131a] transition hover:-translate-y-0.5 hover:bg-white"
                       >
-                        Open Project
+                        View Project
+                      </a>
+                    ) : null}
+
+                    {opened.presentation ? (
+                      <a
+                        href={opened.presentation}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-xl border border-black/15 bg-white/45 px-4 py-2 text-xs font-black uppercase tracking-[0.12em] transition hover:-translate-y-0.5 hover:bg-white"
+                      >
+                        View PowerPoint
                       </a>
                     ) : null}
 
@@ -346,6 +393,59 @@ export default function PortfolioRouteGame() {
                   <p className="mt-5 text-xs font-bold text-black/40">
                     Press Esc or close to continue the level.
                   </p>
+                </div>
+              </div>
+            </div>
+          ) : null}
+
+          {showVideoModal && opened?.demoVideo ? (
+            <div
+              className="fixed inset-0 z-[200] grid place-items-center bg-[#070a10]/78 p-4 backdrop-blur-sm sm:p-6"
+              onPointerDown={(event) => {
+                if (event.target === event.currentTarget) {
+                  setShowVideoModal(false);
+                }
+              }}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="amanak-demo-title"
+            >
+              <div className="w-full max-w-5xl overflow-hidden rounded-[1.5rem] border border-white/12 bg-[#11131a] text-[#fff7ea] shadow-[0_34px_130px_rgba(0,0,0,0.62)]">
+                <div className="flex items-start justify-between gap-4 border-b border-white/10 px-4 py-4 sm:px-6">
+                  <div>
+                    <p className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-[#73e0c1]">
+                      Project demo
+                    </p>
+                    <h3 id="amanak-demo-title" className="mt-1 text-xl font-black sm:text-2xl">
+                      Amanak
+                    </h3>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setShowVideoModal(false)}
+                    className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/12 bg-white/[0.06] text-lg font-black transition hover:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-white/30"
+                    aria-label="Close Amanak demo"
+                  >
+                    X
+                  </button>
+                </div>
+
+                <div className="p-3 sm:p-5">
+                  <video
+                    src={opened.demoVideo}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="max-h-[68vh] w-full rounded-xl bg-black object-contain"
+                  >
+                    Your browser does not support the video element.
+                  </video>
+
+                  {opened.demoNote ? (
+                    <p className="px-1 pb-1 pt-4 text-xs leading-6 text-white/58 sm:text-sm">
+                      {opened.demoNote}
+                    </p>
+                  ) : null}
                 </div>
               </div>
             </div>

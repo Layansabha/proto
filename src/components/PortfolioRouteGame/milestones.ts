@@ -16,7 +16,11 @@ export type GameMilestone = {
   y: number;
   description: string;
   skills: string[];
+  status?: string;
+  demoVideo?: string;
+  demoNote?: string;
   link?: string;
+  presentation?: string;
   evidence?: GameMilestoneEvidence[];
 };
 
@@ -39,7 +43,7 @@ export const gameMilestones: GameMilestone[] = [
     id: 2,
     number: "02",
     title: "Network Engineer Intern",
-    shortLabel: "Network",
+    shortLabel: "Network Internship",
     type: "Experience",
     date: "Aug 2022–Nov 2022",
     organization: "Internship",
@@ -94,7 +98,7 @@ export const gameMilestones: GameMilestone[] = [
     id: 4,
     number: "04",
     title: "Cyber Security Intern",
-    shortLabel: "Security",
+    shortLabel: "Security Internship",
     type: "Experience",
     date: "Jul 2024–Sep 2024",
     organization: "Internship",
@@ -120,20 +124,26 @@ export const gameMilestones: GameMilestone[] = [
     x: 2500,
     y: 430,
     description:
-      "A project checkpoint focused on secure system thinking, backend logic, and turning an idea into a usable product.",
+      "Amanak is a full-stack cybercrime reporting mobile application designed for government-service use. It helps users report cybercrimes, track report status, browse awareness content, and access support features through an Android frontend connected to a Spring Boot backend and MySQL database.",
     skills: [
-      "Web security",
-      "Backend logic",
-      "Project delivery",
-      "Problem solving",
+      "Android",
+      "Java",
+      "Spring Boot",
+      "MySQL",
+      "REST API",
+      "Figma",
     ],
-    link: "https://github.com/Layan-Sabha/Amanak",
+    status: "90% Complete",
+    demoVideo: "/assets/game/certs/amanak.mp4",
+    demoNote:
+      "Amanak is designed to integrate with official government datasets. For demonstration and testing, it currently uses a realistic mock government dataset.",
+    link: "https://github.com/Layansabha/amanak-fullstack",
   },
   {
     id: 6,
     number: "06",
     title: "DevOps Intern",
-    shortLabel: "DevOps",
+    shortLabel: "DevOps Internship",
     type: "Experience",
     date: "Mar 2025–Apr 2025",
     organization: "Internship",
@@ -174,30 +184,38 @@ export const gameMilestones: GameMilestone[] = [
   {
     id: 8,
     number: "08",
-    title: "TRIO",
-    shortLabel: "TRIO",
+    title: "DOM XSS ML",
+    shortLabel: "DOM XSS ML",
     type: "Project",
     date: "2025",
-    organization: "Project",
+    organization: "Machine Learning Security Project",
     x: 4200,
     y: 320,
     description:
-      "A full-stack project checkpoint showing frontend, backend, integration, and product-building thinking.",
-    skills: ["Frontend", "Backend", "Integration", "UI thinking"],
+      "An academic detection pipeline that classifies DOM-based XSS using structural DOM features and multiple machine learning models.",
+    skills: [
+      "DOM XSS",
+      "Feature engineering",
+      "Machine learning",
+      "Model evaluation",
+    ],
+    link: "https://github.com/Layansabha/Dom-xss-ML",
+    presentation:
+      "https://1drv.ms/p/c/96dce14123ced02e/IQBX9nfeSpMaSLrUsLL3BSQtAUqRZswKKZp3o1fUSYqLJfI?e=b7Vgid",
   },
   {
     id: 9,
     number: "09",
-    title: "Full Stack Engineer",
-    shortLabel: "Full Stack",
-    type: "Experience",
-    date: "Dec 2025–Present",
-    organization: "Current role",
+    title: "Network & DevOps Path",
+    shortLabel: "Network\n+ DevOps",
+    type: "Goal",
+    date: "Present",
+    organization: "Career direction",
     x: 4850,
     y: 430,
     description:
-      "The current production stage: building real features across frontend and backend while growing toward secure delivery.",
-    skills: ["APIs", "Production features", "Frontend", "Backend"],
+      "Currently focused on opportunities in network engineering or DevOps, combining infrastructure, automation, troubleshooting, and secure delivery.",
+    skills: ["Networking", "Linux", "CI/CD", "Automation", "Troubleshooting"],
   },
   {
     id: 10,
